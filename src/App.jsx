@@ -4,6 +4,8 @@ import { hot } from 'react-hot-loader/root';
 import { ErrorBoundary } from 'react-error-boundary';
 //error boundary fallback
 import ErrorBoundaryFallback from './js/generic/ErrorBoundaryFallback';
+//components
+import TestComponent from './js/containers/TestComponent';
 
 const App = () => (
 	<ErrorBoundary
@@ -13,7 +15,8 @@ const App = () => (
 			console.log('Try again clicked');
 		}}
 	>
-		<div>testing</div>
+		<h1>Hello World</h1>
+		<TestComponent />
 	</ErrorBoundary>
 );
 
