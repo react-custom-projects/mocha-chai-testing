@@ -5,7 +5,7 @@ import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 //components
 import App from '../App';
-import TestComponent from '../js/containers/TestComponent';
+import CurrentCounter from '../js/containers/CurrentCounter';
 
 describe('Testing <App/> Component', () => {
 	let wrapper;
@@ -13,13 +13,15 @@ describe('Testing <App/> Component', () => {
 		wrapper = shallow(<App />);
 	});
 
+	//unit test
 	it('App renders a message', () => {
-		const message = <h1>Hello World</h1>;
+		const message = <h1>Counter app</h1>;
 		expect(wrapper).to.contain(message);
 	});
 
-	it('contains <TestComponent/> component', function () {
-		expect(wrapper.find(TestComponent)).to.have.length(1);
+	//integration test
+	it('contains <CurrentCounter/> component', function () {
+		expect(wrapper.find(CurrentCounter)).to.have.length(1);
 	});
 
 	chai.use(chaiEnzyme());
