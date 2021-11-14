@@ -1,5 +1,5 @@
 //enzyme
-import { configure, shallow } from 'enzyme';
+import { mount, render, shallow, configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import chaiEnzyme from 'chai-enzyme';
 //chai
@@ -23,4 +23,6 @@ global.describe = describe;
 global.beforeEach = beforeEach;
 global.it = it;
 //enzyme
+global.mount = mount;
+global.render = render;
 global.shallow = shallow;
