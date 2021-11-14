@@ -6,16 +6,18 @@ import { ErrorBoundary } from 'react-error-boundary';
 import ErrorBoundaryFallback from './js/generic/ErrorBoundaryFallback';
 //components
 import CurrentCounter from './js/containers/CurrentCounter';
+//helpers
+import { doDecrement, doIncrement } from './js/constants/Helpers';
 
 const App = () => {
 	const [counter, setCounter] = useState(0);
 
 	const incrementHandler = () => {
-		setCounter((prev) => prev + 1);
+		setCounter(doIncrement);
 	};
 
 	const decrementHandler = () => {
-		setCounter((prev) => prev - 1);
+		setCounter(doDecrement);
 	};
 
 	return (
