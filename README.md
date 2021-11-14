@@ -15,6 +15,8 @@
 - `nyc` => is an npm package for getting stats about the **test coverage** working hand to hand with `Mocha`.
 - `@istanbuljs/nyc-config-babel` => Handy default configuration for instrumenting your babel-backed project with ***test coverage*** using `nyc` and `babel-plugin-istanbul`.
 - `babel-plugin-istanbul` => A Babel plugin that instruments your code with `Istanbul coverage`. It can instantly be used with `karma-coverage` and `mocha` on Node.js (through `nyc`)
+- `jsdom-global` => injects ***document***, ***window*** and other DOM API into your Node.js environment so that you can use them for testing.
+- `jsdom` => required by ***jsdom-global***.
 
 ### .mocharc.yml file:
 

@@ -6,6 +6,8 @@ import chaiEnzyme from 'chai-enzyme';
 import chai, { expect } from 'chai';
 //mocha
 import { describe, beforeEach, it } from 'mocha';
+//js dom setup
+require('jsdom-global')();
 
 //enzyme configurations
 configure({

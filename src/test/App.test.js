@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 //components
 import App from '../App';
 import CurrentCounter from '../js/containers/CurrentCounter';
@@ -11,15 +12,28 @@ describe('<App/> Component', () => {
 		wrapper = shallow(<App />);
 	});
 
+	it('renders without crashing', () => {
+		const div = document.createElement('div');
+		ReactDOM.render(<App />, div);
+		ReactDOM.unmountComponentAtNode(div);
+	});
+
 	//unit test
 	it('Renders a message', () => {
 		const message = <h1>Counter app</h1>;
 		expect(wrapper).to.contain(message);
 	});
 
-	//integration test
+	//unit test
 	it('Contains <CurrentCounter/> component', function () {
 		expect(wrapper.find(CurrentCounter)).to.have.length(1);
+	});
+
+	//integration test
+	it('Passes all props to <CurrentCounter/> component', () => {
+		let counterWrapper = wrapper.find(CurrentCounter);
+
+		expect(counterWrapper.props().counter).to.equal(0);
 	});
 });
 
