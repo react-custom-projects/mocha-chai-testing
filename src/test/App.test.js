@@ -1,8 +1,4 @@
 import React from 'react';
-import { describe, beforeEach, it } from 'mocha';
-import { shallow } from 'enzyme';
-import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme';
 //components
 import App from '../App';
 import CurrentCounter from '../js/containers/CurrentCounter';
@@ -23,6 +19,4 @@ describe('Testing <App/> Component', () => {
 	it('contains <CurrentCounter/> component', function () {
 		expect(wrapper.find(CurrentCounter)).to.have.length(1);
 	});
-
-	chai.use(chaiEnzyme());
 });
