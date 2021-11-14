@@ -104,6 +104,11 @@ It allows you to analyze the bundle size.
 
 It runs all unit test files in `/src/test` directory.
 
+### `yarn test:watch`
+
+- It runs all unit test files in `/src/test` directory using watch mode.
+- Will run all your tests once then again on every change of your source code
+
 ### `yarn test:coverage`
 
 It runs test coverage with `60%` which is set in `.nycrc` file.
