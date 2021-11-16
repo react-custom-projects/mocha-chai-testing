@@ -6,6 +6,8 @@ import CurrentCounter from '../../js/containers/CurrentCounter';
 import { setTestAction } from '../../js/store/app/actions/AppActions';
 //action types
 import { SET_TEST_STRING } from '../../js/store/app/appActionTypes';
+//reducers
+import app from '../../js/store/app/reducers/AppReducer';
 
 describe('<CurrentCounter/> Component', () => {
 	let wrapper;
@@ -28,8 +30,10 @@ describe('<CurrentCounter/> Component', () => {
 		expect(displayName).to.contain.text('Adam');
 	});
 
-	it('should dispatch setTestAction', () => {
-		const initialState = {},
+	it('should dispatch setTestAction and update app state', () => {
+		//use the actual state of your redux store for testing
+		const createState = (initialState) => (actions) => actions.reduce(app, initialState),
+			initialState = createState({}),
 			store = mockStore(initialState);
 
 		// Dispatch the action
@@ -37,5 +41,8 @@ describe('<CurrentCounter/> Component', () => {
 
 		// Test if your store dispatched the expected actions
 		expect(store).to.have.dispatchedTypes([SET_TEST_STRING]);
+
+		//check if state changed successfully
+		expect(store.getState().testString).to.equal('final');
 	});
 });
