@@ -4,4 +4,4 @@ require:
 file:
   - 'src/test/setupTests.js'
 spec:
-  - 'src/test/*.test.js'
+  - 'src/test/**/*.test.js'

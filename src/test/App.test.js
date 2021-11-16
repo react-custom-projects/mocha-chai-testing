@@ -8,11 +8,12 @@ import { doDecrement, doIncrement } from '../js/constants/Helpers';
 
 describe('<App/> Component', () => {
 	let wrapper;
+
 	beforeEach(() => {
 		wrapper = shallow(<App />);
 	});
 
-	it('renders without crashing', () => {
+	it('Renders without crashing', () => {
 		const div = document.createElement('div');
 		ReactDOM.render(<App />, div);
 		ReactDOM.unmountComponentAtNode(div);
@@ -25,19 +26,37 @@ describe('<App/> Component', () => {
 	});
 
 	//unit test
+	it('Increment button works as expected', () => {
+		const incrementButton = wrapper.find('[data-test="increment"]');
+		incrementButton.simulate('click');
+
+		const counterWrapper = wrapper.find(CurrentCounter);
+		expect(counterWrapper.props().counter).to.equal(1);
+	});
+
+	//unit test
+	it('Decrement button works as expected', () => {
+		const decrementButton = wrapper.find('[data-test="decrement"]');
+		decrementButton.simulate('click');
+
+		const counterWrapper = wrapper.find(CurrentCounter);
+		expect(counterWrapper.props().counter).to.equal(-1);
+	});
+
+	//unit test
 	it('Contains <CurrentCounter/> component', function () {
 		expect(wrapper.find(CurrentCounter)).to.have.length(1);
 	});
 
 	//integration test
 	it('Passes all props to <CurrentCounter/> component', () => {
-		let counterWrapper = wrapper.find(CurrentCounter);
+		const counterWrapper = wrapper.find(CurrentCounter);
 
 		expect(counterWrapper.props().counter).to.equal(0);
 	});
 });
 
-describe('Local State', () => {
+describe('<App/> Component Local State', () => {
 	it('Should increment the counter in state', () => {
 		const state = 0,
 			newState = doIncrement(state);

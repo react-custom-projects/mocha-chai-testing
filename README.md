@@ -17,6 +17,7 @@
 - `babel-plugin-istanbul` => A Babel plugin that instruments your code with `Istanbul coverage`. It can instantly be used with `karma-coverage` and `mocha` on Node.js (through `nyc`)
 - `jsdom-global` => injects ***document***, ***window*** and other DOM API into your Node.js environment so that you can use them for testing.
 - `jsdom` => required by ***jsdom-global***.
+- `sinon` => used for mocking.
 
 ### .mocharc.yml file:
 

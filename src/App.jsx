@@ -31,10 +31,10 @@ const App = () => {
 			<div className="container">
 				<h1>Counter app</h1>
 				<CurrentCounter counter={counter} />
-				<button type="button" onClick={incrementHandler}>
+				<button data-test="increment" type="button" onClick={incrementHandler}>
 					Increment
 				</button>
-				<button type="button" onClick={decrementHandler}>
+				<button data-test="decrement" type="button" onClick={decrementHandler}>
 					Decrement
 				</button>
 			</div>
