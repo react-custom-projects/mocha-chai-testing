@@ -17,10 +17,10 @@ describe('<CurrentCounter/> Component', () => {
 
 	it('Name input works correctly', () => {
 		const input = wrapper.find('[data-test="name"]');
-		input.simulate('change', { target: { value: 'mango' } });
-		expect(input).to.have.value('mango');
+		input.simulate('change', { target: { value: 'Adam' } });
+		expect(input).to.have.value('Adam');
 
 		const displayName = wrapper.find('[data-test="displayName"]');
-		expect(displayName).to.contain.text('mango');
+		expect(displayName).to.contain.text('Adam');
 	});
 });
