@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //components
 import CurrentCounter from '../../js/containers/CurrentCounter';
+//actions
+import { setTestAction } from '../../js/store/app/actions/AppActions';
+//action types
+import { SET_TEST_STRING } from '../../js/store/app/appActionTypes';
 
 describe('<CurrentCounter/> Component', () => {
 	let wrapper;
@@ -22,5 +26,16 @@ describe('<CurrentCounter/> Component', () => {
 
 		const displayName = wrapper.find('[data-test="displayName"]');
 		expect(displayName).to.contain.text('Adam');
+	});
+
+	it('should dispatch setTestAction', () => {
+		const initialState = {},
+			store = mockStore(initialState);
+
+		// Dispatch the action
+		store.dispatch(setTestAction('final'));
+
+		// Test if your store dispatched the expected actions
+		expect(store).to.have.dispatchedTypes([SET_TEST_STRING]);
 	});
 });

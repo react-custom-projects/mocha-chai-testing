@@ -18,6 +18,8 @@
 - `jsdom-global` => injects ***document***, ***window*** and other DOM API into your Node.js environment so that you can use them for testing.
 - `jsdom` => required by ***jsdom-global***.
 - `sinon` => used for mocking.
+- `redux-mock-store` => A mock store for testing ***Redux*** async action creators and middleware.
+- `chai-redux-mock-store` => A set of helpers to use with ***chaijs*** and ***redux-mock-store***.
 
 ### .mocharc.yml file:
 

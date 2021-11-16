@@ -1,1 +1,1 @@
-
+export const SET_TEST_STRING = '[APP] SET_TEST_STRING';

@@ -1,3 +1,6 @@
+//redux mock store
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 //sinon
 import sinon from 'sinon';
 //enzyme
@@ -6,10 +9,14 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import chaiEnzyme from 'chai-enzyme';
 //chai
 import chai, { expect } from 'chai';
+import chaiReduxMockStore from 'chai-redux-mock-store';
 //mocha
 import { describe, beforeEach, afterEach, before, after, it } from 'mocha';
 //js dom setup
 require('jsdom-global')();
+
+const middleWares = [thunk],
+	mockStore = configureStore(middleWares);
 
 //enzyme configurations
 configure({
@@ -18,8 +25,12 @@ configure({
 
 //chai assertion for enzyme
 chai.use(chaiEnzyme());
+//chai assertion for redux mock store
+chai.use(chaiReduxMockStore);
 
 /**************** set global functions ****************/
+//mock store
+global.mockStore = mockStore;
 //sinon
 global.sinon = sinon;
 //chai
