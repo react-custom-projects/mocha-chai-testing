@@ -12,7 +12,6 @@ import chai, { expect } from 'chai';
 import chaiReduxMockStore from 'chai-redux-mock-store';
 //mocha
 import { describe, beforeEach, afterEach, before, after, it } from 'mocha';
-import app from '../js/store/app/reducers/AppReducer';
 //js dom setup
 require('jsdom-global')();
 
