@@ -12,11 +12,17 @@ import chai, { expect } from 'chai';
 import chaiReduxMockStore from 'chai-redux-mock-store';
 //mocha
 import { describe, beforeEach, afterEach, before, after, it } from 'mocha';
+import app from '../js/store/app/reducers/AppReducer';
 //js dom setup
 require('jsdom-global')();
 
 const middleWares = [thunk],
-	mockStore = configureStore(middleWares);
+	mockStore = configureStore(middleWares),
+	createState =
+		({ initialState, reducer }) =>
+		(actions) =>
+			actions.reduce(reducer, initialState),
+	mockedStore = ({ initialState, reducer }) => mockStore(createState({ initialState, reducer }));
 
 //enzyme configurations
 configure({
@@ -30,7 +36,7 @@ chai.use(chaiReduxMockStore);
 
 /**************** set global functions ****************/
 //mock store
-global.mockStore = mockStore;
+global.mockedStore = mockedStore;
 //sinon
 global.sinon = sinon;
 //chai

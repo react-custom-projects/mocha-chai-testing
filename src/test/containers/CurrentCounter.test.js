@@ -14,9 +14,8 @@ describe('<CurrentCounter/> Component', () => {
 	let wrapper,
 		store = null;
 	beforeEach(() => {
-		const createState = (initialState) => (actions) => actions.reduce(app, initialState),
-			initialState = createState({});
-		store = mockStore(initialState);
+		//use the actual state of your redux store for testing
+		store = mockedStore({ initialState: {}, reducer: app });
 
 		wrapper = mount(
 			<Provider store={store}>
@@ -46,11 +45,6 @@ describe('<CurrentCounter/> Component', () => {
 	});
 
 	it('should dispatch setTestAction and update app state', () => {
-		//use the actual state of your redux store for testing
-		const createState = (initialState) => (actions) => actions.reduce(app, initialState),
-			initialState = createState({}),
-			store = mockStore(initialState);
-
 		// Dispatch the action
 		store.dispatch(setTestAction('final'));
 

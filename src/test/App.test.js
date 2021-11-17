@@ -14,9 +14,7 @@ describe('<App/> Component', () => {
 		store = null;
 
 	beforeEach(() => {
-		const createState = (initialState) => (actions) => actions.reduce(app, initialState),
-			initialState = createState({});
-		store = mockStore(initialState);
+		store = mockedStore({ initialState: {}, reducer: app });
 		wrapper = mount(
 			<Provider store={store}>
 				<App />
