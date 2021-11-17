@@ -1,21 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 //components
 import App from '../App';
 import CurrentCounter from '../js/containers/CurrentCounter';
 //helpers
 import { doDecrement, doIncrement } from '../js/constants/Helpers';
+//reducers
+import app from '../js/store/app/reducers/AppReducer';
 
 describe('<App/> Component', () => {
-	let wrapper;
+	let wrapper,
+		store = null;
 
 	beforeEach(() => {
-		wrapper = shallow(<App />);
+		const createState = (initialState) => (actions) => actions.reduce(app, initialState),
+			initialState = createState({});
+		store = mockStore(initialState);
+		wrapper = mount(
+			<Provider store={store}>
+				<App />
+			</Provider>
+		);
 	});
 
 	it('Renders without crashing', () => {
 		const div = document.createElement('div');
-		ReactDOM.render(<App />, div);
+		ReactDOM.render(
+			<Provider store={store}>
+				<App />
+			</Provider>,
+			div
+		);
 		ReactDOM.unmountComponentAtNode(div);
 	});
 
