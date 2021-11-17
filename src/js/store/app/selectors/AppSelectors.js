@@ -1,1 +1,1 @@
-export const getAppTestString = ({ state }) => state.app.testString;
+export const getAppTestString = ({ state }) => state?.app?.testString;

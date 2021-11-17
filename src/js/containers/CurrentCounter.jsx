@@ -7,12 +7,12 @@ import { getAppTestString } from '../store/app/selectors/AppSelectors';
 
 const CurrentCounter = ({ counter }) => {
 	const dispatch = useDispatch(),
-		[name, setName] = useState('');
-	// testString = useSelector((state) => getAppTestString({ state }));
+		[name, setName] = useState(''),
+		testString = useSelector((state) => getAppTestString({ state }));
 
-	/*const testStringHandler = () => {
+	const testStringHandler = () => {
 		dispatch(setTestAction('final'));
-	};*/
+	};
 
 	const nameHandler = ({ target: { value } }) => {
 		setName(value);
@@ -29,10 +29,10 @@ const CurrentCounter = ({ counter }) => {
 			/>
 			<p data-test="displayName">Name is: {name}</p>
 			<p>Current counter: {counter}</p>
-			{/*<p>{testString}</p>
+			<p>{testString}</p>
 			<div>
 				<button onClick={testStringHandler}>Change test string</button>
-			</div>*/}
+			</div>
 		</>
 	);
 };
